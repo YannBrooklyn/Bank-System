@@ -9,6 +9,12 @@ export const routes: Routes = [
   {path: 'home',component:HomeComponent},
   {path:'about',component:AboutComponent},
   {path:'info',component:AccountInfoComponent},
+  {
+    path: 'dashboard/accounts/create',
+    loadComponent: () =>
+      import('./dashboard/accounts/account-create/account-create.component')
+        .then(m => m.AccountCreateComponent)
+  },
 ];
 
 @NgModule({
