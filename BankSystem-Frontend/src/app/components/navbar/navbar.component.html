@@ -1,9 +1,7 @@
-<nav>
-  <a routerLink="/home" routerLinkActive="active">Accueil</a>
-  <br>
-  <a routerLink="/about" routerLinkActive="active">À propos</a>
-  <br>
-  <a routerLink="/info" routerLinkActive="active">Informations du compte</a>
-  <br>
-  <a routerLink="/form" routerLinkActive="active">Création de compte</a>
+<nav class="navbar">
+  <ul>
+    <li><a routerLink="/home" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Accueil</a></li>
+    <li><a routerLink="/info" routerLinkActive="active">Informations du compte</a></li>
+    <li><a routerLink="/form" routerLinkActive="active">Création de compte</a></li>
+  </ul>
 </nav>

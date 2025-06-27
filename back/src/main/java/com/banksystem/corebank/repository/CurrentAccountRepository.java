@@ -7,5 +7,4 @@ import com.banksystem.corebank.model.CurrentAccount;
 
 @Repository
 public interface CurrentAccountRepository extends JpaRepository<CurrentAccount, Long> {
-    // Pas besoin de méthodes, tu peux ajouter des requêtes personnalisées si besoin
 }
