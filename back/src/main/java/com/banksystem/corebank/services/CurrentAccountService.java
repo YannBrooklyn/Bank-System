@@ -43,8 +43,10 @@ public class CurrentAccountService {
     }
 
     public void transferFunds (Long sourceId, Long targetId, double amount) throws Exception{
+        System.out.println("on passe dans le service");
         CurrentAccount source = findAccountById(sourceId);
         CurrentAccount target = findAccountById(targetId);
+        
         if(source.getBalance()-amount<0){
            throw new Exception("Pas assez de fond pour un transfert");
         }
