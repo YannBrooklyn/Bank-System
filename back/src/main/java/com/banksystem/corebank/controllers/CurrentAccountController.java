@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.banksystem.corebank.model.CurrentAccount;
+import com.banksystem.corebank.model.Transaction;
 import com.banksystem.corebank.services.CurrentAccountService;
 
 @CrossOrigin(origins = "http://localhost:4200")
@@ -38,4 +39,11 @@ public class CurrentAccountController {
 
         return service.update(existing);
     }
+
+    @PostMapping("/current/transfer")
+    public void transfer(@RequestBody Transaction transfer) throws Exception{
+        service.transferFunds(transfer.getSourceId(), transfer.getTargetId(), transfer.getAmount());
+    }
+
+    
 }
