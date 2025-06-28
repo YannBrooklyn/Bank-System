@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-
+import { Transaction } from '../interface/Transaction'
 @Injectable({
   providedIn: 'root'
 })
@@ -25,5 +25,9 @@ export class AccountService {
     return this.http.put(`http://localhost:8080/api/accounts/${type}/${id}`,data);
   }
 
+  transfer(data: Transaction) {
+    console.table(data);
+    return this.http.post("http://localhost:8080/api/accounts/transfer", data);
+  }
   
 }

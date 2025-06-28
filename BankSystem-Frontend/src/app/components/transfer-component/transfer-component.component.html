@@ -1,0 +1,9 @@
+
+<h3>Source</h3>
+<input [(ngModel)]="transaction.sourceId" type="number">
+<h3>Target</h3>
+<input [(ngModel)]="transaction.targetId" type="number">
+<h3>Amount</h3>
+<input [(ngModel)]="transaction.amount" type="number">
+
+<button type="submit" (click)="onSubmit()">Valider</button>
