@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AccountService } from '../../services/account.service';
-import { Transaction } from '../../interface/Transaction';
+import { Transaction } from '../../interface/transaction';
 
 @Component({
   selector: 'app-transfer-component',
