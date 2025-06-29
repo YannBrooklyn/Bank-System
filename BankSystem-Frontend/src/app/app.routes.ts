@@ -5,6 +5,7 @@ import {AccountInfoComponent} from './components/account-info/account-info.compo
 import { FormComponent } from './components/form/form.component';
 import { AccountCreateComponent } from './dashboard/accounts/account-create/account-create.component';
 import { TransferComponentComponent } from './components/transfer-component/transfer-component.component';
+import { TransactionHistoryComponent } from './components/transaction-history/transaction-history.component';
 
 export const routes: Routes = [
   {path: '', redirectTo: 'home',pathMatch: 'full'},
@@ -12,6 +13,7 @@ export const routes: Routes = [
   {path:'info',component:AccountInfoComponent},
   {path:'form',component:FormComponent},
   {path:'transfer',component:TransferComponentComponent},
+  {path:'history', component:TransactionHistoryComponent}
 ];
 
 @NgModule({
