@@ -41,17 +41,4 @@ public class CurrentAccountService {
         return account;
 
     }
-
-    public void transferFunds (Long sourceId, Long targetId, double amount) throws Exception{
-        CurrentAccount source = findAccountById(sourceId);
-        CurrentAccount target = findAccountById(targetId);
-        
-        if(source.getBalance()-amount<0){
-           throw new Exception("Pas assez de fond pour un transfert");
-        }
-        source.setBalance(source.getBalance()-amount);
-        target.setBalance(target.getBalance()+amount);
-        update(source);
-        update(target);
-     }
 }

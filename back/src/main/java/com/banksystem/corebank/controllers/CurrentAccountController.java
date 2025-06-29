@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.banksystem.corebank.model.CurrentAccount;
 import com.banksystem.corebank.model.Transaction;
 import com.banksystem.corebank.services.CurrentAccountService;
+import com.banksystem.corebank.services.TransactionService;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
@@ -21,6 +22,9 @@ public class CurrentAccountController {
 
     @Autowired
     private CurrentAccountService service;
+
+    @Autowired
+    private TransactionService transactionService;
 
     @PostMapping("/current")
     public CurrentAccount createCurrentAccount(@RequestBody CurrentAccount account) {
@@ -42,6 +46,6 @@ public class CurrentAccountController {
 
     @PostMapping("/transfer")
     public void transfer(@RequestBody Transaction transfer) throws Exception{
-        service.transferFunds(transfer.getSourceId(), transfer.getTargetId(), transfer.getAmount());
+        transactionService.transferFunds(transfer.getSourceId(), transfer.getTargetId(), transfer.getAmount());
     }
 }
