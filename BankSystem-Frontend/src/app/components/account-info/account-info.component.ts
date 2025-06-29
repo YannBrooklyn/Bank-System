@@ -18,6 +18,8 @@ export class AccountInfoComponent {
   successMessage = '';
   result!:boolean;
 
+  
+  
   constructor(private accountService: AccountService) {}
 
   loadAccount() {

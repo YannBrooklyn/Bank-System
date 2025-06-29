@@ -44,10 +44,8 @@ public class CurrentAccountController {
         return service.update(existing);
     }
 
-    @PostMapping("/current/transfer")
+    @PostMapping("/transfer")
     public void transfer(@RequestBody Transaction transfer) throws Exception{
         transactionService.transferFunds(transfer.getSourceId(), transfer.getTargetId(), transfer.getAmount());
     }
-
-    
 }
