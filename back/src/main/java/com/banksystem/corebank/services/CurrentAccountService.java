@@ -43,7 +43,6 @@ public class CurrentAccountService {
     }
 
     public void transferFunds (Long sourceId, Long targetId, double amount) throws Exception{
-        System.out.println("on passe dans le service");
         CurrentAccount source = findAccountById(sourceId);
         CurrentAccount target = findAccountById(targetId);
         

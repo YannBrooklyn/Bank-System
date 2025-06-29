@@ -42,8 +42,6 @@ public class CurrentAccountController {
 
     @PostMapping("/transfer")
     public void transfer(@RequestBody Transaction transfer) throws Exception{
-        System.out.println("->>>");
-        System.out.println(transfer);
         service.transferFunds(transfer.getSourceId(), transfer.getTargetId(), transfer.getAmount());
     }
 }
