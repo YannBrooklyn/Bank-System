@@ -1,0 +1,33 @@
+<h2>Créer un compte bancaire</h2>
+
+<form *ngIf="accountForm" [formGroup]="accountForm" (ngSubmit)="onSubmit()">
+    <div>
+        <label>Nom</label>
+        <input type="text" formControlName="nom">
+        <div *ngIf="accountForm.get('nom')?.invalid && accountForm.get('nom')?.touched">
+            Le nom est requis
+        </div>
+    </div>
+
+    <div>
+        <label>Type de compte</label>
+        <select formControlName="type">
+            <option value="">-- Choisir un type --</option>
+            <option value="CURRENT">Compte courant</option>
+            <option value="SAVINGS">Compte épargne</option>
+        </select>
+        <div *ngIf="accountForm.get('type')?.invalid && accountForm.get('type')?.touched">
+            Le type est requis
+        </div>
+    </div>
+
+    <div>
+        <label>Montant initial</label>
+        <input type="number" formControlName="montant" />
+        <div *ngIf="accountForm.get('montant')?.invalid && accountForm.get('montant')?.touched">
+            Montant requis (minimum 0)
+        </div>
+    </div>
+
+    <button type="submit" [disabled]="accountForm.invalid">Créer le compte</button>
+</form>

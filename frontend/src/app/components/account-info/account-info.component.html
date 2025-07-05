@@ -1,0 +1,28 @@
+<div class="search">
+    <h2>Recherche d'un compte</h2>
+
+    <label>ID du compte :</label>
+    <input type="number" [(ngModel)]="id" />
+    <br>
+    <label>Type de compte :</label>
+    <select [(ngModel)]="type">
+        <option value="current">Compte courant</option>
+        <option value="savings">Compte épargne</option>
+    </select>
+    <br>
+    <button (click)="loadAccount()">Charger le compte</button>
+    <hr>
+</div>
+
+
+<div *ngIf="compte">
+  <h3 >Compte de <span style="color: green;">{{ compte.accountHolderName }}</span></h3>
+  <p>Solde : {{ compte.balance }} euros</p>
+
+  <input type="number" [(ngModel)]="montant" placeholder="Montant" />
+  <button (click)="deposit()">Déposer</button>
+  <button (click)="withdraw()">Retirer</button>
+</div>
+
+<div *ngIf="errorMessage" style="color:red;">{{ errorMessage }}</div>
+<div *ngIf="successMessage" style="color:green;">{{ successMessage }}</div>

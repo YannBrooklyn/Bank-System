@@ -1,0 +1,28 @@
+<h3>Source</h3>
+<input [(ngModel)]="sourceId" type="number">
+
+<button type="submit" (click)="onSubmit()">Valider</button>
+
+
+<div *ngIf="showDiv !== false">
+    <table>
+        <thead>
+            <tr>
+                <th>SourceId</th>
+                <th>TargetId</th>
+                <th>Amount</th>
+                <th>Date</th>
+                <th>Type de transaction</th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let res of result">
+            <tr>
+                <td>{{res.sourceId}}</td>
+                <td>{{res.targetId}}</td>
+                <td>{{res.amount}}</td>
+                <td>{{res.date | date: 'dd/MM/yyyy HH:mm' }}</td>
+                <td>{{res.type}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

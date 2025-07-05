@@ -1,0 +1,55 @@
+<br>
+<div *ngIf="step === 1">
+  <label>Nom et Prénom :</label>
+  <input type="text" [(ngModel)]="formData.accountHolderName" name="accountHolderName" required />
+
+  <button type="button" (click)="nextStep()" [disabled]="!formData.accountHolderName">
+    Suivant
+  </button>
+</div>
+
+
+<div *ngIf="step === 2">
+  <label>Montant initial :</label>
+  <input
+    type="number"
+    [(ngModel)]="formData.balance"
+    name="balance"
+    min="0"
+    required
+  />
+
+  <button type="button" (click)="previousStep()">Précédent</button>
+  <button type="button" (click)="nextStep()" [disabled]="!formData.balance">
+    Suivant
+  </button>
+</div>
+
+
+<div *ngIf="step === 3">
+  <label for="type">Type de compte</label>
+  <select id="type" [(ngModel)]="formData.type" name="type" required>
+    <option value="" disabled selected hidden>-- Choisir un type --</option>
+    <option value="current">Compte courant</option>
+    <option value="savings">Compte épargne</option>
+  </select>
+
+  <br />
+
+  <button type="button" (click)="previousStep()">Précédent</button>
+  <button type="button" (click)="nextStep()" [disabled]="!formData.type">
+    Suivant
+  </button>
+</div>
+
+
+
+<form *ngIf="step === 4" (ngSubmit)="onSubmit()">
+  <h3>Confirmation</h3>
+  <p><strong>Nom :</strong> {{ formData.accountHolderName }}</p>
+  <p><strong>Montant :</strong> {{ formData.balance }} €</p>
+  <p><strong>Type de compte :</strong> {{ formData.type==="current"?"Compte courant":"Compte épargne" }} €</p>
+
+  <button type="button" (click)="previousStep()">Précédent</button>
+  <button type="submit">Valider</button>
+</form>
